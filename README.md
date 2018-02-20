@@ -10,9 +10,14 @@ A lightweight library for local caching in Javascript.
 
 ### Initialise
 
+You can have multiple cache objects which store items under their respective id's:
+
 ```
 var cache = new jCache();
 cache.init('demo');
+
+var cache1 = new jCache();
+cache1.init('demo1');
 ```
 
 ### Setting vaues
