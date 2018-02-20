@@ -20,7 +20,7 @@ var cache1 = new jCache();
 cache1.init('demo1');
 ```
 
-### Setting vaues
+### Setting values
 
 The set method expects a list of arrays.
 
@@ -39,7 +39,8 @@ expiresAt can be set thus:
  
  Alternatively, you can pass in a Javascript date object.
 
-Returns a boolean
+
+This method returns a boolean
 
 ```
 var items = [
