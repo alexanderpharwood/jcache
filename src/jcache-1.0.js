@@ -151,15 +151,15 @@ function jCache() {
         } catch (e) {
 
             //jCache object is broken; unfortunately, we must reset it in its entirety. There seems no way at present to only reset the cache in which the error has occured, without having each cache object set against a different local storage key.
-            
+
             localStorage.setItem('jCache', JSON.stringify(newCacheObj));
 
             jCache.validateCache();
-            
+
             return;
 
         }
-        
+
         if (jCache.cache !== null) {
 
             if (typeof jCache.cache[jCache.cacheId] === 'undefined') {
@@ -282,17 +282,21 @@ function jCache() {
 
                 var cacheItem = items[cacheItemIndex];
 
+                console.log(cacheItem[0]);
+
                 var key = cacheItem[0];
 
                 var value = cacheItem[1];
 
                 var expiresAt = cacheItem[2];
 
+                var returnValue = false;
+
                 if (typeof key === 'undefined' || key === null || key === "" || typeof key !== 'string') {
 
-                    console.error("jCache error: Invalid key given: " + key);
+                    console.error("jCache error: Skipping, invalid key given at items[" + cacheItemIndex + "]");
 
-                    return false;
+                    continue;
 
                 } else {
 
@@ -314,7 +318,9 @@ function jCache() {
 
                     if (typeof value === 'undefined') {
 
-                        console.error("jCache error: value not set");
+                        console.error("jCache error: Skipping, value not set for key: " + key);
+
+                        continue;
 
                     } else {
 
@@ -374,13 +380,15 @@ function jCache() {
 
                         localStorage.setItem('jCache', JSON.stringify(jCache.cache));
 
-                        return true;
+                        returnValue = true;
 
                     }
 
                 }
 
             }
+
+            return returnValue;
 
         }
 
@@ -714,6 +722,8 @@ function jCache() {
     jCache.remove = function (key) {
 
         jCache.validateCache();
+        
+        console.log(key.constructor);
 
         if (key.constructor === Array) {
 
@@ -729,9 +739,9 @@ function jCache() {
 
                 } else {
 
-                    if (typeof jCache.cache[jCache.cacheId][key] === 'undefined') {
+                    if (typeof jCache.cache[jCache.cacheId][thisKey] === 'undefined') {
 
-                        console.error("jCache error: " + key + " not found");
+                        console.error("jCache error: " + thisKey + " not found");
 
                         return false;
 
@@ -1097,6 +1107,25 @@ function jCache() {
             }
 
         }
+
+    };
+
+
+    /**
+     * getType returns the type of the value of the given key.
+     *
+     * Note that JavaScript will interperet an array as an object. We are staying true to this. isArray should be used to check is the value is a true array. isObject can be used to check for an object that is not an array.
+     *
+     * Note that JavaScript returns 'number' for an integer.
+     *
+     * @return Array
+     */
+
+    jCache.keys = function () {
+
+        jCache.validateCache();
+
+        return Object.keys(jCache.cache[jCache.cacheId]);
 
     };
 
