@@ -59,13 +59,13 @@ cache.set(items);
 
 The getValue method expects a string which represents the item's key.
 
-get({key}
+getValue({key}
 
 The key must be a string.
 
 This method returns the value of the given key.
 
 ```
-cache.get('string');
+cache.getValue('string');
 ```
 
