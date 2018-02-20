@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto+Slab:300,400" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            position: relative;
+            background: #4f3761;
+        }
+        
+        .centre {
+            margin: 50px auto;
+            width: 50%;
+            text-align: center;
+        }
+        
+        .centre>.title {
+            font-family: 'Lobster', cursive;
+            color: white;
+            font-size: 50px;
+            font-weight: normal;
+        }
+        
+          .centre p {
+            font-family: 'Roboto Slab', serif;
+            color: rgba(255, 255, 255, 1);
+              font-weight: 300;
+        }
+        
+        .centre>pre {
+            padding: 10px 20px;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 40px 0px;
+            overflow: scroll;
+        }
+        
+        .button{
+            font-family: 'Roboto Slab', serif;
+            background-color: #EFEFEF;
+            text-decoration: none;
+            border: 1px solid #DDDDDD;
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIGlkPSJpY29uIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiBmaWxsPSIjNDM0QTU0IiByPSIxMSIvPjxwYXRoIGQ9Ik0xNC4zMTI3LDE4Ljk0MTFjMCwtMC4yODI2LDAuMDEsLTEuMjA2NiwwLjAxLC0yLjM1NDVjMCwtMC44MDA0LC0wLjI3NDIsLTEuMzIyNiwtMC41ODE5LC0xLjU4ODljMS45MTA1LC0wLjIxMjQsMy45MTc2LC0wLjkzOCwzLjkxNzYsLTQuMjMzM2MwLC0wLjkzNjcsLTAuMzMyOSwtMS43MDIxLC0wLjg4MywtMi4zMDI5YzAuMDg5MSwtMC4yMTYxLDAuMzgyOSwtMS4wODg4LC0wLjA4NDEsLTIuMjcwNmMwLDAsLTAuNzE5NSwtMC4yMzA2LC0yLjM1NzEsMC44Nzk1Yy0wLjY4NTcsLTAuMTkwMiwtMS40MjAyLC0wLjI4NTQsLTIuMTQ5NCwtMC4yODg3Yy0wLjcyOTIsMC4wMDMyLC0xLjQ2MzIsMC4wOTg1LC0yLjE0NzUsMC4yODg3Yy0xLjYzOTYsLTEuMTEwMSwtMi4zNjAxLC0wLjg3OTUsLTIuMzYwMSwtMC44Nzk1Yy0wLjQ2NTgsMS4xODE4LC0wLjE3MjIsMi4wNTQ0LC0wLjA4MzEsMi4yNzA2Yy0wLjU0ODksMC42MDA4LC0wLjg4NDEsMS4zNjYzLC0wLjg4NDEsMi4zMDI5YzAsMy4yODc1LDIuMDAzNCw0LjAyMzIsMy45MDksNC4yNDAyYy0wLjI0NTMsMC4yMTQzLC0wLjQ2NzcsMC41OTI3LC0wLjU0NDcsMS4xNDczYy0wLjQ4OTYsMC4yMTkyLC0xLjczMTUsMC41OTg0LC0yLjQ5NjcsLTAuNzEzM2MwLDAsLTAuNDUzNywtMC44MjM2LC0xLjMxNTIsLTAuODg0MmMwLDAsLTAuODM3MSwtMC4wMTA5LC0wLjA1ODcsMC41MjE2YzAsMCwwLjU2MjMsMC4yNjM2LDAuOTUyNiwxLjI1NTRjMCwwLDAuNTAzNywxLjUzMTMsMi44OTA3LDEuMDEyM2MwLjAwMzYsMC43MTY5LDAuMDExNiwxLjM5MjgsMC4wMTE2LDEuNTk3NGMwLDAuMDcxOCwtMC4wMTYsMC4xNDc1LC0wLjA1MTIsMC4yMTQ5YzAuNzM3NywwLjIyNTIsMS41MTk3LDAuMzQ3NCwyLjMzMDIsMC4zNDc0YzAuNzE3MiwwLDEuNDExOSwtMC4wOTYxLDIuMDczNSwtMC4yNzM5QzE0LjM0MjEsMTkuMTQ3NSwxNC4zMTI3LDE5LjA0MDYsMTQuMzEyNywxOC45NDExeiIgZmlsbD0iI0ZGRkZGRiIvPjxwYXRoIGQ9Ik00LjIyMTgsMTkuNzc4MkM2LjIxMjQsMjEuNzY4OCw4Ljk2MjQsMjMsMTIsMjNjNi4wNzUxLDAsMTEsLTQuOTI0OSwxMSwtMTFjMCwtMy4wMzc2LC0xLjIzMTIsLTUuNzg3NiwtMy4yMjE4LC03Ljc3ODJMNC4yMjE4LDE5Ljc3ODJ6IiBmaWxsPSIjMjMxRjIwIiBvcGFjaXR5PSIwLjEiLz48L2c+PC9zdmc+');
+            background-size: 30px;
+            background-position: 10px center;
+            background-repeat: no-repeat;
+            color: black;
+            border-radius: 3px;
+            padding: 10px 20px 10px 50px;
+            font-size: 16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="centre">
+
+        <h1 class="title">jCache.js</h1>
+        
+        <p>A library for local caching in JavaScript</p>
+        
+        <hr>
+        
+        <p><small>No dependencies - Simple API - Lightweight - Opensource</small></p>
+        
+        <pre style="max-height: 150px;"><code>
+//We've initialised this page
+
+var jCache = new jCache();
+
+jCache.init('demo');
+        </code></pre>
+        
+        
+        <pre style="max-height: 300px;"><code>
+//Have a play in your browser's console
+
+
+//Declare your array of items to set
+
+var items = [
+
+    ["string", "I am a string!", null],
+    ["int", 99, null],
+    ["bool", true, null]
+
+];
+
+
+//Set the item to cache
+
+jCache.set(items);
+
+
+//Retreive the item's value from cache
+
+jCache.getValue('string');
+
+
+//Retreive the item's type from cache
+
+jCache.getType('string');
+        </code></pre>
+
+        <a class="button" href="https://github.com/alexanderpharwood/jcache">Download</a>
+
+    </div>
+
+    <script src="jcache-1.0.js"></script>
+
+    <script>
+        
+        var jCache = new jCache();
+
+        jCache.init('demo');
+
+    </script>
+
+</body>
+
+</html>
