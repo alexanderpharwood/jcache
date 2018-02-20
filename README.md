@@ -32,9 +32,9 @@ The value can be any type (but functions are stored as strings).
 
 expiresAt can be set thus:
 
-  '30s' = 30 seconds
-  '30m' = 30 minutes
-  '30h' = 30 hours
+  '30s' = 30 seconds, 
+  '30m' = 30 minutes, 
+  '30h' = 30 hours, 
   '30d' = 30 days
  
  Alternatively, you can pass in a Javascript date object.
