@@ -1,6 +1,6 @@
 # jCache
 
-A lightweight library for local caching in Javascript.
+A lightweight library for local caching in JavaScript.
 
 - No dependencies
 - Lightweight (12kb minified)
@@ -38,7 +38,7 @@ expiresAt can be set thus:
   '30h' = 30 hours, 
   '30d' = 30 days
  
-Alternatively, you can pass in a Javascript date object.
+Alternatively, you can pass in a JavaScript date object.
 
 A null value will mean the item has no date of expiration.
 
@@ -54,3 +54,18 @@ var items = [
 
 cache.set(items);
 ```
+
+### Getting values
+
+The getValue method expects a string which represents the item's key.
+
+get({key}
+
+The key must be a string.
+
+This method returns the value of the given key.
+
+```
+cache.get('string');
+```
+
