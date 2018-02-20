@@ -37,8 +37,9 @@ expiresAt can be set thus:
   '30h' = 30 hours, 
   '30d' = 30 days
  
- Alternatively, you can pass in a Javascript date object.
+Alternatively, you can pass in a Javascript date object.
 
+A null value will mean the item has no date of expiration.
 
 This method returns a boolean
 
