@@ -1112,11 +1112,7 @@ function jCache() {
 
 
     /**
-     * getType returns the type of the value of the given key.
-     *
-     * Note that JavaScript will interperet an array as an object. We are staying true to this. isArray should be used to check is the value is a true array. isObject can be used to check for an object that is not an array.
-     *
-     * Note that JavaScript returns 'number' for an integer.
+     * keys returns the an array of keys for the cache
      *
      * @return Array
      */
