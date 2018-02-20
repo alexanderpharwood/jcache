@@ -3,7 +3,7 @@
 A lightweight library for local caching in JavaScript.
 
 - No dependencies
-- Lightweight (12kb minified)
+- Lightweight (9kb minified)
 - Simple, intuitive API
 - Opensource (MIT)
 
